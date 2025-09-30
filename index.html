@@ -4,13 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pixel Dynasty</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel Dynasty</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="icon"
       type="image/png"
-      href="assets/PDFavicon.png"
+      href="assets/PDFaviconWhite.png"
       sizes="48x48" />
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+      }
       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap");
       body {
         font-family: "Inter", sans-serif;
@@ -18,35 +26,35 @@
     </style>
   </head>
   <body class="font-sans bg-gray-50 text-gray-800">
-    <header class="bg-white shadow-md sticky top-0 z-50">
+    <header class="bg-white shadow-lg sticky top-0 z-50">
       <nav
         class="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="#hero" class="flex items-center space-x-2">
           <img
-            src="assets/PD Logo full.png"
+            src="assets/PD Logo fullblktxt.png"
             alt="Pixel Dynasty Development Logo"
             class="h-12 w-auto" />
         </a>
-        <div class="hidden md:flex space-x-6 font-semibold text-base">
+        <div class="hidden md:flex space-x-8 font-medium text-base">
           <a
             href="#about"
-            class="text-gray-700 hover:text-blue-600 transition-colors duration-300"
+            class="text-gray-700 hover:text-blue-700 transition-colors duration-300"
             >About</a
           >
           <a
             href="#portfolio"
-            class="text-gray-700 hover:text-blue-600 transition-colors duration-300"
+            class="text-gray-700 hover:text-blue-700 transition-colors duration-300"
             >Portfolio</a
           >
           <a
             href="#contact"
-            class="text-gray-700 hover:text-blue-600 transition-colors duration-300"
+            class="text-gray-700 hover:text-blue-700 transition-colors duration-300"
             >Contact</a
           >
         </div>
         <button
           id="mobile-menu-button"
-          class="md:hidden text-gray-600 hover:text-blue-600 focus:outline-none">
+          class="md:hidden text-gray-700 hover:text-blue-700 focus:outline-none">
           <svg
             class="w-7 h-7"
             fill="none"
@@ -66,17 +74,17 @@
       <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg py-2">
         <a
           href="#about"
-          class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600"
+          class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-blue-700 transition-colors duration-300"
           >About</a
         >
         <a
           href="#portfolio"
-          class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600"
+          class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-blue-700 transition-colors duration-300"
           >Portfolio</a
         >
         <a
           href="#contact"
-          class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600"
+          class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-blue-700 transition-colors duration-300"
           >Contact</a
         >
       </div>
@@ -85,35 +93,43 @@
     <main>
       <section
         id="hero"
-        class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-24 md:py-40 flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8">
-        <div class="container mx-auto max-w-4xl">
+        class="relative py-28 md:py-48 flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 bg-cover bg-center"
+        style="
+          background-image: url('assets/deskhero.png');
+        ">
+        <div class="absolute inset-0 bg-blue-900 opacity-70"></div>
+        <div class="relative container mx-auto max-w-5xl z-10">
           <h1
-            class="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 drop-shadow-xl leading-tight">
-            Crafting <span class="text-pink-300">Stunning</span> Websites for
+            class="text-4xl sm:text-6xl md:text-8xl font-extrabold mb-7 drop-shadow-xl leading-tight tracking-tight text-white">
+            Crafting <span class="text-pink-300">Digital Experiences</span> for
             Your Business
           </h1>
           <p
-            class="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-10 opacity-90 leading-relaxed">
+            class="text-lg sm:text-xl md:text-2xl max-w-4xl mx-auto mb-12 opacity-95 leading-relaxed text-white"
+            style="max-width: 70ch">
             Pixel Dynasty Development creates professional, modern, and
             responsive websites that drive growth and establish a strong online
             presence for small businesses.
           </p>
           <a
             href="#contact"
-            class="inline-block bg-pink-500 text-white text-lg py-4 px-10 rounded-full font-bold shadow-xl hover:bg-white hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pink-300"
+            class="inline-block bg-pink-500 text-white text-xl py-4 px-12 rounded-full font-bold shadow-xl hover:bg-white hover:text-pink-600 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pink-400"
             >Get a Free Quote</a
           >
         </div>
       </section>
 
-      <section id="about" class="py-16 lg:py-24 bg-gray-50">
+      <section
+        id="about"
+        class="py-20 lg:py-28 bg-gray-50 border-b border-gray-200">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2
-            class="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-6 text-blue-700">
+            class="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8 text-blue-700">
             About Pixel Dynasty Development
           </h2>
           <p
-            class="text-center text-gray-700 max-w-3xl mx-auto mb-12 text-lg leading-relaxed">
+            class="text-center text-gray-700 max-w-3xl mx-auto mb-14 text-lg leading-relaxed"
+            style="max-width: 70ch">
             We specialize in creating powerful, professional websites for small
             businesses and non-profits that are just starting out or need an
             updated online presence. We focus on clean design, clear
@@ -123,9 +139,9 @@
           <div
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
             <div
-              class="bg-white rounded-xl p-8 shadow-lg flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300 border border-gray-100">
-              <span class="text-5xl mb-6 text-green-500">💻</span>
-              <h3 class="text-2xl font-semibold mb-3 text-blue-600">
+              class="bg-white rounded-xl p-10 shadow-xl flex flex-col items-center text-center transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-gray-100">
+              <span class="text-6xl mb-6 text-green-600">💻</span>
+              <h3 class="text-2xl font-semibold mb-3 text-blue-700">
                 Web Development
               </h3>
               <p class="text-gray-600 leading-relaxed">
@@ -134,9 +150,9 @@
               </p>
             </div>
             <div
-              class="bg-white rounded-xl p-8 shadow-lg flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300 border border-gray-100">
-              <span class="text-5xl mb-6 text-green-500">🔧</span>
-              <h3 class="text-2xl font-semibold mb-3 text-blue-600">
+              class="bg-white rounded-xl p-10 shadow-xl flex flex-col items-center text-center transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-gray-100">
+              <span class="text-6xl mb-6 text-green-600">🔧</span>
+              <h3 class="text-2xl font-semibold mb-3 text-blue-700">
                 Hosting & Maintenance
               </h3>
               <p class="text-gray-600 leading-relaxed">
@@ -145,9 +161,9 @@
               </p>
             </div>
             <div
-              class="bg-white rounded-xl p-8 shadow-lg flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300 border border-gray-100">
-              <span class="text-5xl mb-6 text-green-500">⚙️</span>
-              <h3 class="text-2xl font-semibold mb-3 text-blue-600">
+              class="bg-white rounded-xl p-10 shadow-xl flex flex-col items-center text-center transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-gray-100">
+              <span class="text-6xl mb-6 text-green-600">⚙️</span>
+              <h3 class="text-2xl font-semibold mb-3 text-blue-700">
                 Custom Projects
               </h3>
               <p class="text-gray-600 leading-relaxed">
@@ -159,40 +175,43 @@
         </div>
       </section>
 
-      <section id="portfolio" class="py-16 lg:py-24 bg-gray-100">
+      <section
+        id="portfolio"
+        class="py-20 lg:py-28 bg-gray-100 border-b border-gray-200">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2
-            class="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-6 text-blue-700">
+            class="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8 text-blue-700">
             Our Recent Work
           </h2>
           <p
-            class="text-center text-gray-700 max-w-3xl mx-auto mb-12 text-lg leading-relaxed">
+            class="text-center text-gray-700 max-w-3xl mx-auto mb-14 text-lg leading-relaxed"
+            style="max-width: 70ch">
             Here are a few examples of professional websites we have recently
             developed, showcasing our commitment to quality and design.
           </p>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
             <div
-              class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 border border-gray-100">
+              class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-gray-100">
               <img
                 src="https://placehold.co/800x600/6990F6/FFFFFF?text=Advantage+Foster+Care"
                 alt="Advantage Foster Care Website"
-                class="w-full h-60 object-cover" />
-              <div class="p-6 sm:p-8">
-                <h3 class="text-2xl font-bold mb-2 text-blue-600">
+                class="w-full h-64 object-cover" />
+              <div class="p-8 sm:p-10">
+                <h3 class="text-2xl font-bold mb-3 text-blue-700">
                   Advantage Foster Care
                 </h3>
-                <p class="text-gray-600 mb-4 leading-relaxed">
+                <p class="text-gray-600 mb-5 leading-relaxed">
                   A simple and professional website for a non-profit
                   organization focused on providing support for foster families.
                 </p>
                 <a
                   href="https://advantagefostercare.pages.dev/"
                   target="_blank"
-                  class="text-pink-500 font-semibold hover:underline hover:text-blue-700 transition-colors duration-300 flex items-center"
+                  class="text-pink-600 font-semibold hover:underline hover:text-blue-700 transition-colors duration-300 flex items-center group focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
                   >View Live Site
                   <svg
-                    class="ml-2 w-4 h-4"
+                    class="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -208,16 +227,16 @@
             </div>
 
             <div
-              class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 border border-gray-100">
+              class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-gray-100">
               <img
                 src="https://placehold.co/800x600/FF6384/FFFFFF?text=The+Bloom+Foundation"
                 alt="The Bloom Foundation Website"
-                class="w-full h-60 object-cover" />
-              <div class="p-6 sm:p-8">
-                <h3 class="text-2xl font-bold mb-2 text-blue-600">
+                class="w-full h-64 object-cover" />
+              <div class="p-8 sm:p-10">
+                <h3 class="text-2xl font-bold mb-3 text-blue-700">
                   The Bloom Foundation
                 </h3>
-                <p class="text-gray-600 mb-4 leading-relaxed">
+                <p class="text-gray-600 mb-5 leading-relaxed">
                   A custom-built website that effectively communicates the
                   mission and services of a non-profit dedicated to community
                   growth.
@@ -225,10 +244,10 @@
                 <a
                   href="https://thebloomfoundationtn.org/"
                   target="_blank"
-                  class="text-pink-500 font-semibold hover:underline hover:text-blue-700 transition-colors duration-300 flex items-center"
+                  class="text-pink-600 font-semibold hover:underline hover:text-blue-700 transition-colors duration-300 flex items-center group focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
                   >View Live Site
                   <svg
-                    class="ml-2 w-4 h-4"
+                    class="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -246,25 +265,27 @@
         </div>
       </section>
 
-      <section id="contact" class="py-16 lg:py-24 bg-gray-50">
+      <section id="contact" class="py-20 lg:py-28 bg-gray-50">
         <div
           class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-2xl">
           <h2
-            class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-blue-700">
+            class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 text-blue-700">
             Ready to Start Your Project?
           </h2>
-          <p class="text-gray-700 mb-10 text-lg leading-relaxed">
+          <p
+            class="text-gray-700 mb-12 text-lg leading-relaxed"
+            style="max-width: 70ch">
             Let's discuss how a new, professionally designed website can help
             your business thrive online. Reach out to us today!
           </p>
           <div
-            class="bg-white p-8 sm:p-10 rounded-xl shadow-lg border border-gray-100">
-            <p class="text-gray-800 font-semibold mb-4 text-xl">
+            class="bg-white p-10 sm:p-12 rounded-xl shadow-xl border border-gray-100">
+            <p class="text-gray-800 font-semibold mb-5 text-xl">
               Get in Touch Via Email
             </p>
             <a
               href="mailto:info@pixeldynasty.dev"
-              class="text-pink-500 font-bold text-2xl hover:underline hover:text-blue-700 transition-colors duration-300"
+              class="text-pink-600 font-bold text-3xl hover:underline hover:text-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
               >info@pixeldynasty.dev</a
             >
           </div>
@@ -272,9 +293,27 @@
       </section>
     </main>
 
-    <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm">
+    <button
+      id="back-to-top"
+      class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300 hidden focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+      aria-label="Back to top">
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+      </svg>
+    </button>
+
+    <footer class="bg-gray-900 text-gray-400 py-10 text-center text-sm">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="mb-2">
+        <p class="mb-3">
           &copy; <span id="currentYear"></span> Pixel Dynasty Development. All
           rights reserved.
         </p>
@@ -301,6 +340,22 @@
           mobileMenu.classList.add("hidden");
         });
       });
+
+      // Back to top button functionality
+      const backToTopButton = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.remove("hidden");
+        } else {
+          backToTopButton.classList.add("hidden");
+        }
+      });
+
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
     </script>
+  </body>
   </body>
 </html>
