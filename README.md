@@ -1,8 +1,48 @@
-![Auto Assign](https://github.com/Pixel-Dynasty-Development/demo-repository/actions/workflows/auto-assign.yml/badge.svg)
 
-![Proof HTML](https://github.com/Pixel-Dynasty-Development/demo-repository/actions/workflows/proof-html.yml/badge.svg)
+# Pixel Dynasty Development Website
 
-# Welcome to your organization's demo respository
-This code repository (or "repo") is designed to demonstrate the best GitHub has to offer with the least amount of noise.
+>This repository contains the source code for the Pixel Dynasty Development landing page and portfolio site.
 
-The repo includes an `index.html` file (so it can render a web page), two GitHub Actions workflows, and a CSS stylesheet dependency.
+## Overview
+
+Pixel Dynasty Development specializes in building professional, modern, and responsive websites for small businesses and non-profits. The site is built with HTML and Tailwind CSS, and showcases the following sections:
+
+- **Hero Section:** Eye-catching introduction with a call-to-action to get a free quote.
+- **About:** Details the services offered, including web development, hosting & maintenance, and custom projects.
+- **Portfolio:** Highlights recent work with links to live client sites.
+- **Contact:** Provides a direct email link for inquiries.
+- **Responsive Navigation:** Includes both desktop and mobile navigation menus.
+- **Back to Top Button:** Smoothly scrolls users to the top of the page.
+
+## Features
+
+- **Modern UI:** Built with [Tailwind CSS](https://tailwindcss.com/) for rapid, responsive design.
+- **Mobile Friendly:** Fully responsive layout and navigation.
+- **Portfolio Gallery:** Showcases real client projects with live links.
+- **Contact CTA:** Easy email contact for new project inquiries.
+- **Custom Branding:** Uses Pixel Dynasty Development logos and imagery.
+
+## Usage
+
+1. Clone the repository:
+	```sh
+	git clone https://github.com/Pixel-Dynasty-Development/PixelDynastyDevelopment.git
+	```
+2. Open `index.html` in your browser to view the site locally.
+
+## Assets
+
+All images and logos are located in the `assets/` directory.
+
+## Customization
+
+- Update the content in `index.html` to reflect your own services or portfolio.
+- Replace images in the `assets/` folder as needed.
+- Adjust Tailwind classes or add custom styles in the `<style>` block of `index.html`.
+
+## Contact
+
+For business inquiries, email: [info@pixeldynasty.dev](mailto:info@pixeldynasty.dev)
+
+---
+© Pixel Dynasty Development. All rights reserved.
