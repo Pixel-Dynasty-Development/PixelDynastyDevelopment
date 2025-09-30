@@ -22,23 +22,10 @@ Pixel Dynasty Development specializes in building professional, modern, and resp
 - **Contact CTA:** Easy email contact for new project inquiries.
 - **Custom Branding:** Uses Pixel Dynasty Development logos and imagery.
 
-## Usage
-
-1. Clone the repository:
-	```sh
-	git clone https://github.com/Pixel-Dynasty-Development/PixelDynastyDevelopment.git
-	```
-2. Open `index.html` in your browser to view the site locally.
-
 ## Assets
 
 All images and logos are located in the `assets/` directory.
 
-## Customization
-
-- Update the content in `index.html` to reflect your own services or portfolio.
-- Replace images in the `assets/` folder as needed.
-- Adjust Tailwind classes or add custom styles in the `<style>` block of `index.html`.
 
 ## Contact
 
