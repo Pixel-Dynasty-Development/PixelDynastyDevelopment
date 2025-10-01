@@ -387,9 +387,15 @@
             </form>
             <div
               id="success-message"
-              class="absolute inset-0 items-center justify-center bg-white text-green-600 text-2xl font-semibold hidden transition-opacity"
+              class="absolute inset-0 items-center justify-center bg-white text-green-600 text-2xl font-semibold hidden transition-opacity duration-500"
             >
               Email Sent Successfully!
+            </div>
+            <div
+              id="spam-message"
+              class="absolute inset-0 items-center justify-center bg-white text-red-600 text-2xl font-semibold hidden transition-opacity duration-500 text-center p-4"
+            >
+              Your email was detected as spam. Please try again!
             </div>
           </div>
           <p class="text-center text-gray-600 mt-8 text-lg">
@@ -490,19 +496,21 @@
               result.innerHTML = json.message;
             } else {
               console.log(response);
-              result.innerHTML = json.message;
+              
+              result.innerHTML = json.message+". Please try again.";
+              formFields.style.display = "block";
+              // Show spam message if botcheck is filled
+              if (object.botcheck) {
+                document.getElementById("spam-message").classList.remove("hidden");
+              }
+
             }
           })
           .catch((error) => {
             console.log(error);
             result.innerHTML = "Something went wrong!";
           })
-          .then(function () {
-            form.reset();
-            setTimeout(() => {
-              result.style.display = "none";
-            }, 3000);
-          });
+          
       });
     </script>
   </body>
