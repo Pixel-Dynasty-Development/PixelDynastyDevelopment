@@ -1,0 +1,31 @@
+{
+	"name": "pixel-dynasty-development",
+	"version": "0.1.0",
+	"description": "Repo for Pixel Dynasty Development - A web development template using vanilla JS and Tailwind CSS.",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"format": "prettier --write \"**/*.{js,json,md,html,css}\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Pixel-Dynasty-Development/PixelDynastyDevelopment.git"
+	},
+	"keywords": [
+		"web-development",
+		"template",
+		"pixel-dynasty",
+		"vanilla-js",
+		"tailwind-css"
+	],
+	"author": "Pixel Dynasty Development",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Pixel-Dynasty-Development/PixelDynastyDevelopment/issues"
+	},
+	"homepage": "https://github.com/Pixel-Dynasty-Development/PixelDynastyDevelopment#readme",
+	"devDependencies": {
+		"prettier": "^3.2.5",
+		"live-server": "1.2.2",
+		"eslint": "^8.45.0"
+	}
+}
