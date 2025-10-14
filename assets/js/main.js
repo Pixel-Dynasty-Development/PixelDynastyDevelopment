@@ -1,18 +1,43 @@
-function initMain() {
-	// Mobile Menu
-	const mobileMenuButton = document.getElementById("mobile-menu-button");
-	const mobileMenu = document.getElementById("mobile-menu");
-	if (mobileMenuButton) {
-		mobileMenuButton.addEventListener("click", () => {
-			mobileMenu.classList.toggle("hidden");
-		});
-	}
-	document.querySelectorAll("#mobile-menu a").forEach((item) => {
-		item.addEventListener("click", () => {
-			mobileMenu.classList.add("hidden");
-		});
-	});
+function initTheme() {
+	const themeToggleBtn = document.getElementById("theme-toggle");
+	const themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
+	const themeToggleLightIcon = document.getElementById(
+		"theme-toggle-light-icon"
+	);
 
+	// Function to set the theme
+	const setTheme = (isDark) => {
+		if (isDark) {
+			document.documentElement.classList.add("dark");
+			themeToggleLightIcon.classList.remove("hidden");
+			themeToggleDarkIcon.classList.add("hidden");
+			localStorage.setItem("color-theme", "dark");
+		} else {
+			document.documentElement.classList.remove("dark");
+			themeToggleDarkIcon.classList.remove("hidden");
+			themeToggleLightIcon.classList.add("hidden");
+			localStorage.setItem("color-theme", "light");
+		}
+	};
+
+	// Initial theme check
+	const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+	const savedTheme = localStorage.getItem("color-theme");
+
+	if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+		setTheme(true);
+	} else {
+		setTheme(false);
+	}
+
+	// Event listener for the toggle button
+	themeToggleBtn.addEventListener("click", () => {
+		const isCurrentlyDark = document.documentElement.classList.contains("dark");
+		setTheme(!isCurrentlyDark);
+	});
+}
+
+function initMain() {
 	// Back to Top Button
 	const backToTopButton = document.getElementById("back-to-top");
 	if (backToTopButton) {
@@ -43,9 +68,5 @@ function initMain() {
 	}
 }
 
-// Initial call in case router loads content before this script is fully parsed
-if (document.readyState === "loading") {
-	document.addEventListener("DOMContentLoaded", initMain);
-} else {
-	initMain();
-}
+// Initial theme setup on script load
+initTheme();
