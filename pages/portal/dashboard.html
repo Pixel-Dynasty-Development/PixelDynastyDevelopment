@@ -1,0 +1,36 @@
+<!-- NOTE: The outer wrapper div is now in portal.html -->
+<h1 class="text-3xl font-bold mb-8 text-light-heading dark:text-dark-heading">
+	Welcome, Client!
+</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+	<!-- Quick Stats -->
+	<div class="bg-light-card dark:bg-dark-card p-6 rounded-lg shadow-md">
+		<h2 class="text-xl font-semibold mb-2">Website Visitors</h2>
+		<p class="text-4xl font-bold text-primary-light dark:text-primary-dark">
+			1,234
+		</p>
+		<p class="text-sm text-gray-500 dark:text-gray-400">in the last 30 days</p>
+	</div>
+	<div class="bg-light-card dark:bg-dark-card p-6 rounded-lg shadow-md">
+		<h2 class="text-xl font-semibold mb-2">Pending Invoices</h2>
+		<p class="text-4xl font-bold text-secondary-light dark:text-secondary-dark">
+			2
+		</p>
+		<a
+			href="#billing"
+			data-portal-link
+			class="text-sm text-primary-light dark:text-primary-dark hover:underline"
+			>View Invoices</a
+		>
+	</div>
+	<div class="bg-light-card dark:bg-dark-card p-6 rounded-lg shadow-md">
+		<h2 class="text-xl font-semibold mb-2">Open Tasks</h2>
+		<p class="text-4xl font-bold text-accent">5</p>
+		<a
+			href="#tasks"
+			data-portal-link
+			class="text-sm text-primary-light dark:text-primary-dark hover:underline"
+			>View Tasks</a
+		>
+	</div>
+</div>

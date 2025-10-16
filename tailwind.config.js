@@ -1,7 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	darkMode: "class",
-	content: ["./*.html", "./pages/**/*.html", "./components/**/*.html"],
+	content: [
+		"./*.html",
+		"./pages/**/*.html",
+		"./components/**/*.html",
+		"./pages/portal/**/*.html", // Added portal pages
+	],
 	theme: {
 		extend: {
 			colors: {

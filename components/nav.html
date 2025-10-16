@@ -29,13 +29,22 @@
 				class="text-light-text dark:text-dark-text hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300"
 				>Contact</a
 			>
+			<!-- Client Portal Link -->
+			<a
+				id="portal-nav-link"
+				href="/login"
+				data-link
+				class="bg-primary-light text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300"
+				>Client Login</a
+			>
 			<button
 				id="theme-toggle"
 				type="button"
 				class="text-light-text dark:text-dark-text hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+				<!-- FIX: Icons are no longer hidden by default, JS will manage them -->
 				<svg
 					id="theme-toggle-dark-icon"
-					class="w-5 h-5 hidden"
+					class="w-5 h-5"
 					fill="currentColor"
 					viewBox="0 0 20 20"
 					xmlns="http://www.w3.org/2000/svg">
@@ -44,7 +53,7 @@
 				</svg>
 				<svg
 					id="theme-toggle-light-icon"
-					class="w-5 h-5 hidden"
+					class="w-5 h-5"
 					fill="currentColor"
 					viewBox="0 0 20 20"
 					xmlns="http://www.w3.org/2000/svg">
@@ -77,6 +86,13 @@
 			data-link
 			class="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-700 dark:hover:text-blue-400"
 			>Contact</a
+		>
+		<a
+			href="/login"
+			id="mobile-portal-nav-link"
+			data-link
+			class="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-700 dark:hover:text-blue-400"
+			>Client Login</a
 		>
 	</div>
 </header>

@@ -1,72 +1,137 @@
 function initTheme() {
 	const themeToggleBtn = document.getElementById("theme-toggle");
+	if (!themeToggleBtn) return;
+
 	const themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
 	const themeToggleLightIcon = document.getElementById(
 		"theme-toggle-light-icon"
 	);
 
-	// Function to set the theme
 	const setTheme = (isDark) => {
-		if (isDark) {
-			document.documentElement.classList.add("dark");
-			themeToggleLightIcon.classList.remove("hidden");
-			themeToggleDarkIcon.classList.add("hidden");
-			localStorage.setItem("color-theme", "dark");
-		} else {
-			document.documentElement.classList.remove("dark");
-			themeToggleDarkIcon.classList.remove("hidden");
-			themeToggleLightIcon.classList.add("hidden");
-			localStorage.setItem("color-theme", "light");
-		}
+		document.documentElement.classList.toggle("dark", isDark);
+		if (themeToggleLightIcon)
+			themeToggleLightIcon.classList.toggle("hidden", !isDark);
+		if (themeToggleDarkIcon)
+			themeToggleDarkIcon.classList.toggle("hidden", isDark);
+		localStorage.setItem("color-theme", isDark ? "dark" : "light");
 	};
 
-	// Initial theme check
 	const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 	const savedTheme = localStorage.getItem("color-theme");
 
-	if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-		setTheme(true);
-	} else {
-		setTheme(false);
-	}
+	setTheme(savedTheme === "dark" || (!savedTheme && prefersDark));
 
-	// Event listener for the toggle button
 	themeToggleBtn.addEventListener("click", () => {
-		const isCurrentlyDark = document.documentElement.classList.contains("dark");
-		setTheme(!isCurrentlyDark);
+		setTheme(!document.documentElement.classList.contains("dark"));
 	});
 }
 
-function initMain() {
-	// Back to Top Button
+/**
+ * Initializes scripts that are common across the main website pages (not the portal).
+ */
+function initMainSite() {
 	const backToTopButton = document.getElementById("back-to-top");
 	if (backToTopButton) {
 		window.addEventListener("scroll", () => {
-			if (window.pageYOffset > 300) {
-				backToTopButton.classList.remove("hidden");
-			} else {
-				backToTopButton.classList.add("hidden");
+			backToTopButton.classList.toggle("hidden", window.pageYOffset <= 300);
+		});
+		backToTopButton.addEventListener("click", () =>
+			window.scrollTo({ top: 0, behavior: "smooth" })
+		);
+	}
+
+	const currentYear = document.getElementById("currentYear");
+	if (currentYear) currentYear.textContent = new Date().getFullYear();
+
+	updateNavLinks();
+}
+
+/**
+ * Updates the 'Client Login' button to 'Client Portal' if the user is logged in.
+ */
+function updateNavLinks() {
+	const isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
+	document
+		.querySelectorAll("#portal-nav-link, #mobile-portal-nav-link")
+		.forEach((link) => {
+			if (link) {
+				link.href = isLoggedIn ? "/portal" : "/login";
+				link.textContent = isLoggedIn ? "Client Portal" : "Client Login";
 			}
 		});
-		backToTopButton.addEventListener("click", () => {
-			window.scrollTo({ top: 0, behavior: "smooth" });
-		});
-	}
+}
 
-	// Form Submission
-	const form = document.getElementById("form");
-	if (form) {
-		form.addEventListener("submit", function (e) {
-			// Your form submission logic here...
-		});
-	}
+/**
+ * Initializes the login form functionality.
+ */
+function initLogin() {
+	updateNavLinks();
+	const loginForm = document.getElementById("login-form");
+	if (loginForm) {
+		loginForm.addEventListener("submit", (e) => {
+			e.preventDefault();
+			const username = e.target.username.value;
+			const password = e.target.password.value;
+			const errorDiv = document.getElementById("login-error");
 
-	// Set current year in footer
-	const currentYear = document.getElementById("currentYear");
-	if (currentYear) {
-		currentYear.textContent = new Date().getFullYear();
+			if (username === "client" && password === "password") {
+				sessionStorage.setItem("isLoggedIn", "true");
+				history.pushState(null, "", "/portal");
+				window.dispatchEvent(new PopStateEvent("popstate"));
+			} else {
+				errorDiv?.classList.remove("hidden");
+			}
+		});
 	}
 }
 
-// Initial theme setup on script load
-initTheme();
+/**
+ * Initializes the interactive elements of the client portal AFTER the content is loaded.
+ */
+function initPortalInteractivity() {
+	const portalLinks = document.querySelectorAll("[data-portal-link]");
+	const portalSections = document.querySelectorAll(".portal-section");
+	const logoutButton = document.getElementById("logout-button");
+
+	const showSection = (hash) => {
+		const targetId = hash ? hash.substring(1) : "dashboard";
+		portalSections.forEach((section) =>
+			section.classList.toggle("hidden", section.id !== targetId)
+		);
+		portalLinks.forEach((link) =>
+			link.classList.toggle("active-link", link.hash === `#${targetId}`)
+		);
+	};
+
+	portalLinks.forEach((link) => {
+		link.addEventListener("click", (e) => {
+			e.preventDefault();
+			const hash = e.currentTarget.hash;
+			if (window.location.hash !== hash)
+				history.pushState(null, null, `/portal${hash}`);
+			showSection(hash);
+		});
+	});
+
+	logoutButton?.addEventListener("click", () => {
+		sessionStorage.removeItem("isLoggedIn");
+		history.pushState(null, "", "/login");
+		window.dispatchEvent(new PopStateEvent("popstate"));
+	});
+
+	const taskTypeSelector = document.getElementById("task-type");
+	const taskFieldsContainer = document.getElementById("task-fields");
+	if (taskTypeSelector && taskFieldsContainer) {
+		const updateTaskForm = () => {
+			const selectedType = taskTypeSelector.value;
+			const template = document.getElementById(`template-${selectedType}`);
+			if (template) {
+				taskFieldsContainer.innerHTML = template.innerHTML;
+			}
+		};
+		taskTypeSelector.addEventListener("change", updateTaskForm);
+		updateTaskForm();
+	}
+
+	showSection(window.location.hash);
+}
