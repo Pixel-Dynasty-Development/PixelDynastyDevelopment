@@ -1,4 +1,4 @@
-function initTheme() {
+export function initTheme() {
 	const themeToggleBtn = document.getElementById("theme-toggle");
 	if (!themeToggleBtn) return;
 
@@ -29,7 +29,7 @@ function initTheme() {
 /**
  * Initializes scripts that are common across the main website pages (not the portal).
  */
-function initMainSite() {
+export function initMainSite() {
 	const backToTopButton = document.getElementById("back-to-top");
 	if (backToTopButton) {
 		window.addEventListener("scroll", () => {
@@ -64,7 +64,7 @@ function updateNavLinks() {
 /**
  * Initializes the login form functionality.
  */
-function initLogin() {
+export function initLogin() {
 	updateNavLinks();
 	const loginForm = document.getElementById("login-form");
 	if (loginForm) {
@@ -88,7 +88,7 @@ function initLogin() {
 /**
  * Initializes the interactive elements of the client portal AFTER the content is loaded.
  */
-function initPortalInteractivity() {
+export function initPortalInteractivity() {
 	const portalLinks = document.querySelectorAll("[data-portal-link]");
 	const portalSections = document.querySelectorAll(".portal-section");
 	const logoutButton = document.getElementById("logout-button");

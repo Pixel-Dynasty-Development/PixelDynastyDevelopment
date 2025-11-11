@@ -18,62 +18,7 @@
 				class="text-2xl font-bold mb-6 text-gray-800 dark:text-white text-center">
 				Send Us a Message
 			</h3>
-			<form
-				id="form"
-				action="https://api.web3forms.com/submit"
-				method="POST"
-				class="space-y-6">
-				<div>
-					<label
-						for="name"
-						class="block text-sm font-medium text-gray-700 dark:text-gray-300"
-						>Full Name</label
-					>
-					<input
-						type="text"
-						id="name"
-						name="name"
-						class="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-700 dark:text-white"
-						placeholder="Your Name" />
-				</div>
-				<div>
-					<label
-						for="email"
-						class="block text-sm font-medium text-gray-700 dark:text-gray-300"
-						>Email</label
-					>
-					<input
-						type="email"
-						id="email"
-						name="email"
-						class="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-700 dark:text-white"
-						placeholder="you@example.com" />
-				</div>
-				<div>
-					<label
-						for="message"
-						class="block text-sm font-medium text-gray-700 dark:text-gray-300"
-						>Message</label
-					>
-					<textarea
-						id="message"
-						name="message"
-						rows="4"
-						class="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-700 dark:text-white"
-						placeholder="How can we help?"></textarea>
-				</div>
-				<input
-					type="hidden"
-					name="apikey"
-					value="6716f822-12e7-4b87-965f-d35756484004" />
-				<div class="text-center">
-					<button
-						type="submit"
-						class="inline-flex justify-center py-2 px-6 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:bg-blue-600 dark:hover:bg-blue-700">
-						Submit
-					</button>
-				</div>
-			</form>
+			<div id="contactform-container"></div>
 		</div>
 
 		<div class="mt-16 text-lg">

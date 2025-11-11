@@ -1,3 +1,10 @@
+import {
+	initTheme,
+	initMainSite,
+	initLogin,
+	initPortalInteractivity,
+} from "./main.js";
+
 document.addEventListener("DOMContentLoaded", () => {
 	const routes = {
 		"/": "pages/home.html",
@@ -20,6 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
 			if (!response.ok) throw new Error("Page not found");
 
 			mainContent.innerHTML = await response.text();
+			const contactFormContainer = document.getElementById(
+				"contactform-container"
+			);
+			if (contactFormContainer) {
+				console.log("Loading contact form component...");
+				const contactFormResponse = await fetch("/components/contactform.html");
+				contactFormContainer.innerHTML = await contactFormResponse.text();
+			}
 
 			// If it's the portal page, we need to load its components AND then init interactivity
 			if (filePath.includes("portal.html")) {
@@ -59,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	};
 
-	const handleRouteChange = () => {
+	const handleRouteChange = async () => {
 		const urlPath = window.location.pathname;
 
 		if (urlPath.startsWith("/portal") && !isAuthenticated()) {
@@ -73,7 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
 		footerContainer.style.display = isPortal ? "none" : "block";
 
 		const filePath = routes[urlPath] || "pages/404.html";
-		loadContent(filePath);
+
+		await loadContent(filePath);
+		window.scrollTo(0, 0);
 	};
 
 	document.body.addEventListener("click", (e) => {
@@ -89,13 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		const navResponse = await fetch("/components/nav.html");
 		navContainer.innerHTML = await navResponse.text();
 		if (typeof initTheme === "function") initTheme();
-
-		if (contactFormContainer) {
-			console.log("Loading contact form component...");
-			const contactFormResponse = await fetch("/components/contactform.html");
-			contactFormContainer.innerHTML = await contactFormResponse.text();
-			if (typeof initContactForm === "function") initContactForm();
-		}
 
 		const footerResponse = await fetch("/components/footer.html");
 		footerContainer.innerHTML = await footerResponse.text();
