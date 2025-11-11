@@ -33,7 +33,7 @@ tailwind.config = {
 				},
 			},
 			fontFamily: {
-				sans: ["Inter", "sans-serif"],
+				sans: ["Pixeloid Sans", "Inter", "sans-serif"],
 			},
 		},
 	},
