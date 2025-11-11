@@ -1,25 +1,3 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-	apiKey: "AIzaSyC2L3eRqz5g_p2b53pWaqXgDslLviPogLg",
-	authDomain: "pixel-dynasty.firebaseapp.com",
-	projectId: "pixel-dynasty",
-	storageBucket: "pixel-dynasty.firebasestorage.app",
-	messagingSenderId: "509298042821",
-	appId: "1:509298042821:web:117862a522d6e940e8cdac",
-	measurementId: "G-D0DZQ50C13",
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
 function initTheme() {
 	const themeToggleBtn = document.getElementById("theme-toggle");
 	if (!themeToggleBtn) return;
@@ -61,8 +39,6 @@ function initMainSite() {
 			window.scrollTo({ top: 0, behavior: "smooth" })
 		);
 	}
-
-	
 
 	const currentYear = document.getElementById("currentYear");
 	if (currentYear) currentYear.textContent = new Date().getFullYear();

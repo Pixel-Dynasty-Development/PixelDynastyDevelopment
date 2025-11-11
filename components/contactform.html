@@ -1,0 +1,137 @@
+<form id="contact-form" class="space-y-6" data-api-key="YOUR_WEB3FORMS_API_KEY_HERE">
+      
+  <!-- Name Field -->
+  <div>
+    <label
+      for="name"
+      class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300"
+    >
+      Full Name
+    </label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      class="block w-full px-4 py-3 text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      placeholder="John Doe"
+    />
+  </div>
+
+  <!-- Email Field -->
+  <div>
+    <label
+      for="email"
+      class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300"
+    >
+      Email Address
+    </label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      class="block w-full px-4 py-3 text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      placeholder="you@example.com"
+    />
+  </div>
+
+  <!-- Message Field -->
+  <div>
+    <label
+      for="message"
+      class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300"
+    >
+      Your Message
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      rows="6"
+      required
+      class="block w-full px-4 py-3 text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      placeholder="Let us know how we can help..."
+    ></textarea>
+  </div>
+
+  <!-- Submit Button -->
+  <div>
+    <button
+      type="submit"
+      id="submit-button"
+      class="w-full px-6 py-3 text-base font-medium text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-gray-400 disabled:cursor-not-allowed dark:focus:ring-offset-gray-800"
+    >
+      Send Message
+    </button>
+  </div>
+</form>
+
+<!-- Result Message Container -->
+<div id="result-message" class="mt-6 text-center"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contact-form');
+  const submitButton = document.getElementById('submit-button');
+  const resultMessage = document.getElementById('result-message');
+
+  // Get the API key from the form's data attribute
+  const apiKey = form.dataset.apiKey;
+
+  if (!apiKey || apiKey === "YOUR_WEB3FORMS_API_KEY_HERE") {
+      console.warn("Web3Forms API key is missing. Please add it to the form's data-api-key attribute.");
+      resultMessage.innerHTML = '<p class="text-red-600 dark:text-red-400">Form configuration error: Missing API key.</p>';
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // Disable button and show loading text
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+    resultMessage.innerHTML = ''; // Clear previous messages
+
+    const formData = new FormData(form);
+    formData.append('access_key', apiKey);
+    formData.append('subject', `New Contact Form Submission from ${formData.get('name')}`);
+
+    // Set a timeout for the API call
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10-second timeout
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+        signal: controller.signal, // Pass the AbortSignal to fetch
+      });
+
+      clearTimeout(timeoutId); // Clear the timeout if the fetch completes in time
+
+      const result = await response.json();
+
+      if (result.success) {
+        resultMessage.innerHTML = '<p class="text-green-600 dark:text-green-400">Thank you! Your message has been sent successfully. ✅</p>';
+        form.reset(); // Reset form fields
+      } else {
+        console.error('Submission Error:', result);
+        resultMessage.innerHTML = `<p class="text-red-600 dark:text-red-400">${result.message || 'Something went wrong. Please try again. ❌'}</p>`;
+      }
+    } catch (error) {
+      clearTimeout(timeoutId); // Clear the timeout if an error occurs
+      console.error('Fetch Error:', error);
+      
+      let errorMessage = 'An error occurred. Please try again later. ❌';
+      if (error.name === 'AbortError') {
+        errorMessage = 'The request took too long. Please check your connection and try again. ⏳';
+      }
+      resultMessage.innerHTML = `<p class="text-red-600 dark:text-red-400">${errorMessage}</p>`;
+    } finally {
+      // Re-enable the button
+      submitButton.disabled = false;
+      submitButton.textContent = 'Send Message';
+    }
+  });
+});
+</script>

@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const mainContent = document.getElementById("main-content");
 	const navContainer = document.getElementById("nav-container");
 	const footerContainer = document.getElementById("footer-container");
+	const contactFormContainer = document.getElementById("contactform-container");
 
 	const isAuthenticated = () => sessionStorage.getItem("isLoggedIn") === "true";
 
@@ -88,6 +89,13 @@ document.addEventListener("DOMContentLoaded", () => {
 		const navResponse = await fetch("/components/nav.html");
 		navContainer.innerHTML = await navResponse.text();
 		if (typeof initTheme === "function") initTheme();
+
+		if (contactFormContainer) {
+			console.log("Loading contact form component...");
+			const contactFormResponse = await fetch("/components/contactform.html");
+			contactFormContainer.innerHTML = await contactFormResponse.text();
+			if (typeof initContactForm === "function") initContactForm();
+		}
 
 		const footerResponse = await fetch("/components/footer.html");
 		footerContainer.innerHTML = await footerResponse.text();
