@@ -3,6 +3,7 @@ import {
 	initMainSite,
 	initLogin,
 	initPortalInteractivity,
+	initMobileMenu,
 } from "./main.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -106,6 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		const navResponse = await fetch("/components/nav.html");
 		navContainer.innerHTML = await navResponse.text();
 		if (typeof initTheme === "function") initTheme();
+		if (typeof initMobileMenu === "function") initMobileMenu();
 
 		const footerResponse = await fetch("/components/footer.html");
 		footerContainer.innerHTML = await footerResponse.text();

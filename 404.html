@@ -11,6 +11,7 @@
 		<meta
 			name="description"
 			content="Pixel Dynasty Development creates professional, modern, and responsive websites that drive growth and establish a strong online presence for small businesses." />
+		<script src="assets/js/tailwind.config.js"></script>
 		<script src="https://cdn.tailwindcss.com"></script>
 		<link
 			rel="icon"
@@ -29,12 +30,21 @@
 			rel="stylesheet" />
 		<script src="assets/js/tailwind.config.js"></script>
 		<style>
+			@font-face {
+				font-family: "Pixeloid Sans";
+				src: url("/assets/fonts/PixeloidSans-E40en.ttf") format("truetype");
+				font-weight: normal;
+				font-style: normal;
+			}
+		</style>
+		<style>
 			body {
 				font-family: "Inter", sans-serif;
 			}
 		</style>
 	</head>
-	<body class="font-sans bg-gray-50 text-gray-800">
+	<body
+		class="font-sans bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text">
 		<div
 			id="nav-container"
 			class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm"></div>
@@ -43,7 +53,8 @@
 
 		<div id="footer-container"></div>
 
-		<script src="assets/js/router.js"></script>
-		<script src="assets/js/main.js"></script>
+		<script
+			type="module"
+			src="assets/js/router.js"></script>
 	</body>
 </html>

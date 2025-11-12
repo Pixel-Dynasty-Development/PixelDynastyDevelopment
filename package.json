@@ -4,6 +4,7 @@
 	"description": "Repo for Pixel Dynasty Development - A web development template using vanilla JS and Tailwind CSS.",
 	"scripts": {
 		"dev": "vite",
+		"preveiw": "vite build && vite preview",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"format": "prettier --write \"**/*.{js,json,md,html,css}\""
 	},
@@ -29,9 +30,5 @@
 		"glob": "11.0.3",
 		"vite": "^4.4.9",
 		"prettier": "^3.2.5"
-	},
-	"dependencies": {
-		"@dataconnect/generated": "file:src/dataconnect-generated",
-		"firebase": "^12.4.0"
 	}
 }

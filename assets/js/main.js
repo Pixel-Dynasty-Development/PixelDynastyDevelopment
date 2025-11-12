@@ -1,31 +1,56 @@
 export function initTheme() {
-	const themeToggleBtn = document.getElementById("theme-toggle");
-	if (!themeToggleBtn) return;
+	// Find ALL theme toggle buttons on the page
+	const themeToggleBtns = document.querySelectorAll('[data-js="theme-toggle"]');
+	if (themeToggleBtns.length === 0) return;
 
-	const themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
-	const themeToggleLightIcon = document.getElementById(
-		"theme-toggle-light-icon"
-	);
+	// Find ALL icons on the page
+	const allDarkIcons = document.querySelectorAll(".theme-toggle-dark-icon");
+	const allLightIcons = document.querySelectorAll(".theme-toggle-light-icon");
 
 	const setTheme = (isDark) => {
 		document.documentElement.classList.toggle("dark", isDark);
-		if (themeToggleLightIcon)
-			themeToggleLightIcon.classList.toggle("hidden", !isDark);
-		if (themeToggleDarkIcon)
-			themeToggleDarkIcon.classList.toggle("hidden", isDark);
+
+		// Toggle all icons
+		allLightIcons.forEach((icon) => icon.classList.toggle("hidden", !isDark));
+		allDarkIcons.forEach((icon) => icon.classList.toggle("hidden", isDark));
+
 		localStorage.setItem("color-theme", isDark ? "dark" : "light");
 	};
 
 	const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 	const savedTheme = localStorage.getItem("color-theme");
 
+	// Set initial theme
 	setTheme(savedTheme === "dark" || (!savedTheme && prefersDark));
 
-	themeToggleBtn.addEventListener("click", () => {
-		setTheme(!document.documentElement.classList.contains("dark"));
+	// Add click listener to ALL toggle buttons
+	themeToggleBtns.forEach((btn) => {
+		btn.addEventListener("click", () => {
+			setTheme(!document.documentElement.classList.contains("dark"));
+		});
 	});
 }
 
+/**
+ * Initializes the mobile menu toggle button.
+ */
+export function initMobileMenu() {
+	const mobileMenuButton = document.getElementById("mobile-menu-button");
+	const mobileMenu = document.getElementById("mobile-menu");
+
+	if (mobileMenuButton && mobileMenu) {
+		mobileMenuButton.addEventListener("click", () => {
+			mobileMenu.classList.toggle("hidden");
+		});
+
+		// Close menu when a link is clicked
+		mobileMenu.addEventListener("click", (e) => {
+			if (e.target.closest("[data-link]")) {
+				mobileMenu.classList.add("hidden");
+			}
+		});
+	}
+}
 /**
  * Initializes scripts that are common across the main website pages (not the portal).
  */
