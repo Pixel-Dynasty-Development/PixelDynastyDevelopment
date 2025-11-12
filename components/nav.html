@@ -1,0 +1,143 @@
+<header
+	class="bg-light-card/80 dark:bg-dark-card/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+	<nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+		<a
+			href="/"
+			data-link
+			class="flex items-center space-x-2">
+			<img
+				src="/assets/images/PD Logo fullblktxt.png"
+				alt="Pixel Dynasty Development Logo"
+				class="h-[65px] w-auto" />
+		</a>
+
+		<div class="hidden md:flex items-center space-x-8 font-medium text-base">
+			<a
+				href="/about"
+				data-link
+				class="text-light-text dark:text-dark-text hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300"
+				>About</a
+			>
+			<a
+				href="/portfolio"
+				data-link
+				class="text-light-text dark:text-dark-text hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300"
+				>Portfolio</a
+			>
+			<a
+				href="/contact"
+				data-link
+				class="text-light-text dark:text-dark-text hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300"
+				>Contact</a
+			>
+			<a
+				id="portal-nav-link"
+				href="/login"
+				data-link
+				class="bg-primary-light text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300"
+				>Client Login</a
+			>
+
+			<button
+				data-js="theme-toggle"
+				type="button"
+				class="text-light-text dark:text-dark-text hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+				<svg
+					class="w-5 h-5 theme-toggle-dark-icon"
+					fill="currentColor"
+					viewBox="0 0 20 20"
+					xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+				</svg>
+				<svg
+					class="w-5 h-5 hidden theme-toggle-light-icon"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg">
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+				</svg>
+			</button>
+		</div>
+
+		<div class="md:hidden flex items-center space-x-2">
+			<button
+				data-js="theme-toggle"
+				type="button"
+				class="text-light-text dark:text-dark-text hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+				<svg
+					class="w-5 h-5 theme-toggle-dark-icon"
+					fill="currentColor"
+					viewBox="0 0 20 20"
+					xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+				</svg>
+				<svg
+					class="w-5 h-5 hidden theme-toggle-light-icon"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg">
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+				</svg>
+			</button>
+
+			<button
+				id="mobile-menu-button"
+				class="md:hidden text-primary-light dark:text-primary-dark hover:text-blue-700 dark:hover:text-blue-400 focus:outline-none p-1">
+				<svg
+					class="w-6 h-6"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg">
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M4 6h16M4 12h16M4 18h16"></path>
+				</svg>
+			</button>
+		</div>
+	</nav>
+
+	<div
+		id="mobile-menu"
+		class="hidden md:hidden bg-light-card dark:bg-dark-card shadow-lg py-2">
+		<a
+			href="/about"
+			data-link
+			class="block px-4 py-3 text-light-text dark:text-dark-text hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-primary-light dark:hover:text-primary-dark"
+			>About</a
+		>
+		<a
+			href="/portfolio"
+			data-link
+			class="block px-4 py-3 text-light-text dark:text-dark-text hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-primary-light dark:hover:text-primary-dark"
+			>Portfolio</a
+		>
+		<a
+			href="/contact"
+			data-link
+			class="block px-4 py-3 text-light-text dark:text-dark-text hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-primary-light dark:hover:text-primary-dark"
+			>Contact</a
+		>
+		<a
+			href="/login"
+			id="mobile-portal-nav-link"
+			data-link
+			class="block px-4 py-3 text-light-text dark:text-dark-text hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-primary-light dark:hover:text-primary-dark"
+			>Client Login</a
+		>
+	</div>
+</header>

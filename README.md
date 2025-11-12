@@ -1,7 +1,10 @@
+<div align="center">
+<img src="./assets/images/PD Logo full.png" alt="logo">
+</div>
 
 # Pixel Dynasty Development Website
 
->This repository contains the source code for the Pixel Dynasty Development landing page and portfolio site.
+> This repository contains the source code for the Pixel Dynasty Development landing page and portfolio site.
 
 ## Overview
 
@@ -22,14 +25,10 @@ Pixel Dynasty Development specializes in building professional, modern, and resp
 - **Contact CTA:** Easy email contact for new project inquiries.
 - **Custom Branding:** Uses Pixel Dynasty Development logos and imagery.
 
-## Assets
-
-All images and logos are located in the `assets/` directory.
-
-
 ## Contact
 
-For business inquiries, email: [info@pixeldynasty.dev](mailto:info@pixeldynasty.dev)
+📧: [info@pixeldynasty.dev](mailto:info@pixeldynasty.dev)
 
 ---
+
 © Pixel Dynasty Development. All rights reserved.
