@@ -1,34 +1,37 @@
 {
-	"name": "pixel-dynasty-development",
-	"version": "0.1.0",
-	"description": "Repo for Pixel Dynasty Development - A web development template using vanilla JS and Tailwind CSS.",
-	"scripts": {
-		"dev": "vite",
-		"preveiw": "vite build && vite preview",
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"format": "prettier --write \"**/*.{js,json,md,html,css}\""
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Pixel-Dynasty-Development/PixelDynastyDevelopment.git"
-	},
-	"keywords": [
-		"web-development",
-		"template",
-		"pixel-dynasty",
-		"vanilla-js",
-		"tailwind-css"
-	],
-	"author": "Pixel Dynasty Development",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/Pixel-Dynasty-Development/PixelDynastyDevelopment/issues"
-	},
-	"homepage": "https://github.com/Pixel-Dynasty-Development/PixelDynastyDevelopment#readme",
-	"devDependencies": {
-		"eslint": "^8.45.0",
-		"glob": "11.0.3",
-		"vite": "^4.4.9",
-		"prettier": "^3.2.5"
-	}
+  "name": "pixel-dynasty-development",
+  "version": "0.1.0",
+  "description": "Repo for Pixel Dynasty Development - A web development template using vanilla JS and Tailwind CSS.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite build && vite preview",
+    "format": "prettier --write \"**/*.{js,json,md,html,css}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pixel-Dynasty-Development/PixelDynastyDevelopment.git"
+  },
+  "keywords": [
+    "web-development",
+    "template",
+    "pixel-dynasty",
+    "vanilla-js",
+    "tailwind-css"
+  ],
+  "author": "Pixel Dynasty Development",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pixel-Dynasty-Development/PixelDynastyDevelopment/issues"
+  },
+  "homepage": "https://github.com/Pixel-Dynasty-Development/PixelDynastyDevelopment#readme",
+  "devDependencies": {
+    "eslint": "^10.2.1",
+    "glob": "^13.0.6",
+    "vite": "^8.0.9",
+    "tailwindcss": "^4.2.4",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "prettier": "^3.8.3"
+  }
 }

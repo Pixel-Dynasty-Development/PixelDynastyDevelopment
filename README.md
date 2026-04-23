@@ -1,34 +1,49 @@
 <div align="center">
-<img src="./assets/images/PD Logo full.png" alt="logo">
+<img src="./assets/images/PD Logo full.png" alt="logo" width="400">
 </div>
 
 # Pixel Dynasty Development Website
 
-> This repository contains the source code for the Pixel Dynasty Development landing page and portfolio site.
+> The official source code for the Pixel Dynasty Development landing page, dynamic portfolio, and client portal.
 
-## Overview
+## 🛠️ Tech Stack
 
-Pixel Dynasty Development specializes in building professional, modern, and responsive websites for small businesses and non-profits. The site is built with HTML and Tailwind CSS, and showcases the following sections:
+- **Frontend:** Vanilla JavaScript (ES6+), HTML5
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Build Tool:** [Vite](https://vitejs.dev/)
+- **Formatting:** Prettier (with Tailwind plugin)
 
-- **Hero Section:** Eye-catching introduction with a call-to-action to get a free quote.
-- **About:** Details the services offered, including web development, hosting & maintenance, and custom projects.
-- **Portfolio:** Highlights recent work with links to live client sites.
-- **Contact:** Provides a direct email link for inquiries.
-- **Responsive Navigation:** Includes both desktop and mobile navigation menus.
-- **Back to Top Button:** Smoothly scrolls users to the top of the page.
+## 🌟 Key Features
 
-## Features
+- **Dynamic SPA Routing:** A custom JavaScript router that loads pages without full refreshes for a seamless user experience.
+- **Automated Portfolio:** Projects are dynamically generated from a central data file (`projects.js`), making updates as easy as adding a single line of code.
+- **Client Portal:** A dedicated staging area for clients to view project progress and manage tasks.
+- **Theme Engine:** Full Dark/Light mode support with system preference detection.
+- **Responsive Design:** Optimized for everything from mobile devices to ultra-wide monitors (2-column mobile / 4-column desktop grid).
 
-- **Modern UI:** Built with [Tailwind CSS](https://tailwindcss.com/) for rapid, responsive design.
-- **Mobile Friendly:** Fully responsive layout and navigation.
-- **Portfolio Gallery:** Showcases real client projects with live links.
-- **Contact CTA:** Easy email contact for new project inquiries.
-- **Custom Branding:** Uses Pixel Dynasty Development logos and imagery.
+## 🚀 Project Routes
 
-## Contact
+Pixel Dynasty Development focuses on three primary pillars:
 
-📧: [info@pixeldynasty.dev](mailto:info@pixeldynasty.dev)
+1. **Pixel Dynasty:** Professional web development and client services.
+2. **The Bloom Foundation:** Helping build non-profit initiatives to combat child poverty.
+3. **Switch It:** Day-job related development and professional maintenance.
+
+## 🛠️ Development
+
+### Scripts
+
+- `npm run dev`: Start the local development server.
+- `npm run build`: Build the project for production.
+- `npm run preview`: Preview the production build locally.
+- `npm run format`: Automatically format code using Prettier and organize Tailwind classes.
+
+## 📧 Contact & Support
+
+- **Email:** [info@pixeldynasty.dev](mailto:info@pixeldynasty.dev)
+- **Website:** [www.pixeldynasty.dev](https://www.pixeldynasty.dev)
 
 ---
 
-© Pixel Dynasty Development. All rights reserved.
+© 2026 Pixel Dynasty Development. All rights reserved.
+_Designed and Built with ♥ by Pixel Dynasty Development_
