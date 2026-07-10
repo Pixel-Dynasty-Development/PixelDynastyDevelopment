@@ -14,6 +14,13 @@ export const projects = [
     isProduction: true,
   },
   {
+    title: "Advantage Foster Care",
+    description: "Foster Care and mental health non profit.",
+    image: "assets/images/AdvantageFosterCareSitePreview.png",
+    link: "https://advantagefostercare.pages.dev/",
+    isProduction: true,
+  },
+  {
     title: "But First Coffee",
     description: "Local Coffee shop",
     image: "/images/coffee.jpg",
